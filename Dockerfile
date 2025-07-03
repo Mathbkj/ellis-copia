@@ -1,7 +1,8 @@
-FROM python:3.13.4-alpine3.22
+FROM python:alpine
 WORKDIR /app
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-EXPOSE 8000
+RUN pip3 install --no-cache-dir -r requirements.txt
+VOLUME [ "/data" ]
+EXPOSE 8080
 COPY . .
-CMD ["uvicorn", "main:app", "--host","0.0.0.0","--port","8000","--reload"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]

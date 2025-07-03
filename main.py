@@ -4,9 +4,7 @@ from routers.alunos import alunos_router
 from routers.cursos import cursos_router
 from routers.matriculas import matriculas_router
 
-
 Base.metadata.create_all(bind=engine)
-
 app = FastAPI(
     title="API de Gestão Escolar", 
     description="""
